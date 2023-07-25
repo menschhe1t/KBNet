@@ -14,6 +14,8 @@ __all__ = ['create_dataset', 'create_dataloader']
 
 # automatically scan and import dataset modules
 # scan all the files under the data folder with '_dataset' in file names
+########################################
+
 data_folder = osp.dirname(osp.abspath(__file__))
 dataset_filenames = [
     osp.splitext(osp.basename(v))[0] for v in scandir(data_folder)
@@ -25,7 +27,7 @@ _dataset_modules = [
     for file_name in dataset_filenames
 ]
 
-
+#########데이터 집어넣는 구간
 def create_dataset(dataset_opt):
     """Create dataset.
 
@@ -38,7 +40,7 @@ def create_dataset(dataset_opt):
 
     # dynamic instantiation
     for module in _dataset_modules:
-        dataset_cls = getattr(module, dataset_type, None)
+        dataset_cls = getattr(module, dataset_type, None) #찾은 데이터셋 클래스 저장
         if dataset_cls is not None:
             break
     if dataset_cls is None:
