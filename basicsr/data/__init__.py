@@ -16,7 +16,7 @@ __all__ = ['create_dataset', 'create_dataloader']
 # scan all the files under the data folder with '_dataset' in file names
 ########################################
 
-data_folder = osp.dirname(osp.abspath(__file__))
+data_folder = osp.dirname(osp.abspath(__file__)) # 현스크립트의 위치
 dataset_filenames = [
     osp.splitext(osp.basename(v))[0] for v in scandir(data_folder)
     if v.endswith('_dataset.py')
