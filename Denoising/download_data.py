@@ -6,7 +6,7 @@
 
 
 import os
-# import gdown
+import gdown
 import shutil
 
 import argparse
@@ -36,76 +36,76 @@ for data in args.data.split('-'):
     if noise == 'real':
         if data == 'train':
             print('SIDD Training Data!')
-            os.makedirs(os.path.join('Datasets', 'Downloads'), exist_ok=True)
-            # gdown.download(id=SIDD_train, output='Datasets/Downloads/train.zip', quiet=False)
-            os.system(f'gdrive download {SIDD_train} --path Datasets/Downloads/')
+            os.makedirs(os.path.join('/kaggle/working/Datasets', 'Downloads'), exist_ok=True)
+            gdown.download(id=SIDD_train, output='/kaggle/working/Datasets/Downloads/train.zip', quiet=False)
+            os.system(f'gdrive download {SIDD_train} --path /kaggle/working/Datasets/Downloads/')
             print('Extracting SIDD Data...')
-            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/train.zip', 'Datasets/Downloads')
-            os.rename(os.path.join('Datasets', 'Downloads', 'train'), os.path.join('Datasets', 'Downloads', 'SIDD'))
+            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/train.zip', '/kaggle/working/Datasets/Downloads')
+            os.rename(os.path.join('/kaggle/working/Datasets', 'Downloads', 'train'), os.path.join('/kaggle/working/Datasets', 'Downloads', 'SIDD'))
             os.remove('/kaggle/working/Datasets/Downloads/train.zip')
 
             print('SIDD Validation Data!')
-            # gdown.download(id=SIDD_val, output='/kaggle/working/Datasets/val.zip', quiet=False)
-            os.system(f'gdrive download {SIDD_val} --path Datasets/')
+            gdown.download(id=SIDD_val, output='/kaggle/working/Datasets/val.zip', quiet=False)
+            os.system(f'gdrive download {SIDD_val} --path /kaggle/working/Datasets/')
             print('Extracting SIDD Data...')
-            shutil.unpack_archive('/kaggle/working/Datasets/val.zip', 'Datasets')
+            shutil.unpack_archive('/kaggle/working/Datasets/val.zip', '/kaggle/working/Datasets')
             os.remove('/kaggle/working/Datasets/val.zip')
 
         if data == 'test':
             if args.dataset == 'all' or args.dataset == 'SIDD':
                 print('SIDD Testing Data!')
-                # gdown.download(id=SIDD_test, output='Datasets/test.zip', quiet=False)
+                gdown.download(id=SIDD_test, output='/kaggle/working/Datasets/test.zip', quiet=False)
                 os.system(f'gdrive download {SIDD_test} --path /kaggle/working/Datasets/')
                 print('Extracting SIDD Data...')
-                shutil.unpack_archive('/kaggle/working/Datasets/test.zip', 'Datasets')
+                shutil.unpack_archive('/kaggle/working/Datasets/test.zip', '/kaggle/working/Datasets')
                 os.remove('/kaggle/working/Datasets/test.zip')
 
             if args.dataset == 'all' or args.dataset == 'DND':
                 print('DND Testing Data!')
-                # gdown.download(id=DND_test, output='/kaggle/working/Datasets/test.zip', quiet=False)
-                os.system(f'gdrive download {DND_test} --path Datasets/')
+                gdown.download(id=DND_test, output='/kaggle/working/Datasets/test.zip', quiet=False)
+                os.system(f'gdrive download {DND_test} --path /kaggle/working/Datasets/')
                 print('Extracting DND data...')
-                shutil.unpack_archive('/kaggle/working/Datasets/test.zip', 'Datasets')
+                shutil.unpack_archive('/kaggle/working/Datasets/test.zip', '/kaggle/working/Datasets')
                 os.remove('/kaggle/working/Datasets/test.zip')
 
     if noise == 'gaussian':
         if data == 'train':
-            os.makedirs(os.path.join('Datasets', 'Downloads'), exist_ok=True)
+            os.makedirs(os.path.join('/kaggle/working/Datasets', 'Downloads'), exist_ok=True)
             print('WaterlooED Training Data!')
-            # gdown.download(id=WaterlooED, output='/kaggle/working/Datasets/Downloads/WaterlooED.zip', quiet=False)
+            gdown.download(id=WaterlooED, output='/kaggle/working/Datasets/Downloads/WaterlooED.zip', quiet=False)
             os.system(f'gdrive download {WaterlooED} --path /kaggle/working/Datasets/Downloads/')
             print('Extracting WaterlooED Data...')
-            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/WaterlooED.zip', 'Datasets/Downloads')
+            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/WaterlooED.zip', '/kaggle/working/Datasets/Downloads')
             os.remove('/kaggle/working/Datasets/Downloads/WaterlooED.zip')
 
             print('DIV2K Training Data!')
-            # gdown.download(id=DIV2K, output='/kaggle/working/Datasets/Downloads/DIV2K.zip', quiet=False)
+            gdown.download(id=DIV2K, output='/kaggle/working/Datasets/Downloads/DIV2K.zip', quiet=False)
             os.system(f'gdrive download {DIV2K} --path /kaggle/working/Datasets/Downloads/')
             print('Extracting DIV2K Data...')
-            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/DIV2K.zip', 'Datasets/Downloads')
+            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/DIV2K.zip', '/kaggle/working/Datasets/Downloads')
             os.remove('/kaggle/working/Datasets/Downloads/DIV2K.zip')
             
 
             print('BSD400 Training Data!')
-            # gdown.download(id=BSD400, output='/kaggle/working/Datasets/Downloads/BSD400.zip', quiet=False)
+            gdown.download(id=BSD400, output='/kaggle/working/Datasets/Downloads/BSD400.zip', quiet=False)
             os.system(f'gdrive download {BSD400} --path /kaggle/working/Datasets/Downloads/')
             print('Extracting BSD400 data...')
-            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/BSD400.zip', 'Datasets/Downloads')
+            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/BSD400.zip', '/kaggle/working/Datasets/Downloads')
             os.remove('/kaggle/working/Datasets/Downloads/BSD400.zip')
             
             print('Flickr2K Training Data!')
-            # gdown.download(id=Flickr2K, output='/kaggle/working/Datasets/Downloads/Flickr2K.zip', quiet=False)
+            gdown.download(id=Flickr2K, output='/kaggle/working/Datasets/Downloads/Flickr2K.zip', quiet=False)
             os.system(f'gdrive download {Flickr2K} --path /kaggle/working/Datasets/Downloads/')
             print('Extracting Flickr2K data...')
-            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/Flickr2K.zip', 'Datasets/Downloads')
+            shutil.unpack_archive('/kaggle/working/Datasets/Downloads/Flickr2K.zip', '/kaggle/working/Datasets/Downloads')
             os.remove('/kaggle/working/Datasets/Downloads/Flickr2K.zip')
 
         if data == 'test':
             print('Gaussian Denoising Testing Data!')
-            # gdown.download(id=gaussian_test, output='/kaggle/working/Datasets/test.zip', quiet=False)
+            gdown.download(id=gaussian_test, output='/kaggle/working/Datasets/test.zip', quiet=False)
             os.system(f'gdrive download {gaussian_test} --path /kaggle/working/Datasets/')
             print('Extracting Data...')
-            shutil.unpack_archive('/kaggle/working/Datasets/test.zip', 'Datasets')
+            shutil.unpack_archive('/kaggle/working/Datasets/test.zip', '/kaggle/working/Datasets')
             os.remove('/kaggle/working/Datasets/test.zip')
 
-# print('Download completed successfully!')
+print('Download completed successfully!')
