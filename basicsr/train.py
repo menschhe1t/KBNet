@@ -131,8 +131,8 @@ def main():
     torch.backends.cudnn.benchmark = True
     # torch.backends.cudnn.deterministic = True
 
-    # automatic resume ..
-    state_folder_path = 'experiments/{}/training_states/'.format(opt['name'])
+    # automatic resume .. 학습 자동 재개
+    state_folder_path = 'experiments/{}/training_states/'.format(opt['name']) # opt['name']에 해당하는 경로 저장
     import os
     try:
         states = os.listdir(state_folder_path)
@@ -143,7 +143,7 @@ def main():
     if len(states) > 0:
         max_state_file = '{}.state'.format(max([int(x[0:-6]) for x in states]))
         resume_state = os.path.join(state_folder_path, max_state_file)
-        opt['path']['resume_state'] = resume_state
+        opt['path']['resume_state'] = resume_state # 경로저장
 
     # load resume states if necessary
     if opt['path'].get('resume_state'):
